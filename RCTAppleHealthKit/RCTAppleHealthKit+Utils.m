@@ -291,6 +291,9 @@ NSString * const kMetadataKey = @"metadata";
     if ([unitString isEqualToString:@"cm"]) {
          theUnit = [HKUnit meterUnitWithMetricPrefix:HKMetricPrefixCenti];
     }
+    if ([unitString isEqualToString:@"km"]) {
+         theUnit = [HKUnit meterUnitWithMetricPrefix:HKMetricPrefixKilo];
+    }
     if ([unitString isEqualToString:@"inch"]) {
          theUnit = [HKUnit inchUnit];
     }
