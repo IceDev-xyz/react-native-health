@@ -327,6 +327,8 @@
                             NSString *startDateString = [RCTAppleHealthKit buildISO8601StringFromDate:sample.startDate];
                             NSString *endDateString = [RCTAppleHealthKit buildISO8601StringFromDate:sample.endDate];
 
+                            NSTimeInterval duration =  [sample duration];
+
                             bool isTracked = true;
                             if ([[sample metadata][HKMetadataKeyWasUserEntered] intValue] == 1) {
                                 isTracked = false;
@@ -353,8 +355,9 @@
                                                    @"sourceId" : [[[sample sourceRevision] source] bundleIdentifier],
                                                    @"device": device,
                                                    @"distance" : @(distance),
-                                                   @"start" : startDateString,
-                                                   @"end" : endDateString
+                                                   @"startDate" : startDateString,
+                                                   @"endDate" : endDateString,
+                                                   @"duration" : @(duration),
                                                    };
 
                             [data addObject:elem];
